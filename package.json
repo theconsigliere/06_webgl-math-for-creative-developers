@@ -6,6 +6,7 @@
     "prod": "rm -r node_modules/"
   },
   "dependencies": {
+    "simplex-noise": "^4.0.1",
     "three": "^0.152.2",
     "vite": "^5.0.10",
     "vite-plugin-glsl": "^1.1.2"

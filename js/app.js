@@ -21,45 +21,15 @@ const divisions = 40
 const gridHelper = new THREE.GridHelper(size, divisions)
 scene.add(gridHelper)
 
-// orbit controls
+const geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2)
+const material = new THREE.MeshNormalMaterial()
 
-let mesh = new THREE.Mesh(
-  new THREE.SphereGeometry(0.05, 32, 32),
-  new THREE.MeshNormalMaterial()
-)
-
-function addPoint(x, y, z) {
-  let point = mesh.clone()
-  point.position.set(x, y, z)
-  scene.add(point)
-
-  return point
-}
-
-let number = 300
-
-let objects = []
-
-// makes a full circle of spheres
-for (let i = 0; i < number; i++) {
-  // math PI * 2 = 360 degrees (full circle)
-  let theta = (i / number) * Math.PI * 2
-  let x = Math.cos(theta)
-  let y = Math.sin(theta)
-  let z = 0
-
-  let mesh = addPoint(x, y, z)
-  objects.push({
-    mesh,
-    theta,
-    random: Math.random(),
-    x: Math.random() / 5,
-    y: Math.random() / 5,
-    z: Math.random() / 5,
-  })
-}
+const mesh = new THREE.Mesh(geometry, material)
+scene.add(mesh)
 
 const renderer = new THREE.WebGLRenderer({ antialias: true })
+
+// orbit controls
 let controls = new OrbitControls(camera, renderer.domElement)
 renderer.setSize(width, height)
 renderer.setAnimationLoop(animation)
@@ -68,14 +38,6 @@ document.body.appendChild(renderer.domElement)
 // animation
 
 function animation(time) {
-  objects.forEach((object, i) => {
-    let { mesh, theta, random, x, y, z } = object
-    let newx = Math.cos(theta + time / 1000) + x
-    let newy = Math.sin(theta + time / 1000) + y
-    let newz = z
-
-    mesh.position.set(newx, newy, newz)
-  })
   mesh.rotation.x = time / 2000
   mesh.rotation.y = time / 1000
 

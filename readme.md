@@ -1,4 +1,4 @@
 # Three JS Workshops: Math for Creatives
 
 // link in markup
-[Link Text](https://threejs-workshops.com/workshop/math#1)
+[Three JS Workshops: Math for Creatives](https://threejs-workshops.com/workshop/math#1)

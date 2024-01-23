@@ -6,7 +6,7 @@
 
 ## Sin
 
-![Sine to Gerstner Waves](sine-to-gerstner-waves.png)
+![Sine to Gerstner Waves](sine-gerstner-waves.png)
 
 ## Sine to Gerstner Waves
 
